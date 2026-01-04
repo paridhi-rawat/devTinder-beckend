@@ -1,24 +1,14 @@
 const express = require("express");
 const app = express();
+const {adminAuth} = require("./middlewares/auth")
+app.use("/admin",adminAuth)
 
-app.get("/test",(req, res) => {
+app.get("/admin/getAllData",(req, res) => {
  res.send("get from the server!!");
 });
 
-app.post("/test",(req, res) => {
+app.post("/admin/deleteAllData",(req, res) => {
  res.send("test post successfully from the server!!");
-});
-
-app.delete("/test",(req, res) => {
- res.send("test deleted from the server!!");
-});
-
-app.use("/test",(req, res) => {
- res.send("test from the server!!");
-});
-
-app.use((req, res) => {
- res.send("Namaste!!");
 });
 
 app.listen(3000, () => {
