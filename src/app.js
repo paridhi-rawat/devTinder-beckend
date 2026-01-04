@@ -1,8 +1,16 @@
 const express = require("express");
 const app = express();
 
-app.use("/hello",(req, res) => {
- res.send("Hello from the server!!");
+app.get("/test",(req, res) => {
+ res.send("get from the server!!");
+});
+
+app.post("/test",(req, res) => {
+ res.send("test post successfully from the server!!");
+});
+
+app.delete("/test",(req, res) => {
+ res.send("test deleted from the server!!");
 });
 
 app.use("/test",(req, res) => {
